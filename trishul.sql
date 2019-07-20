@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 03:13 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: Jul 20, 2019 at 03:35 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,7 +33,7 @@ CREATE TABLE `cart` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `is_ordered` int(11) NOT NULL DEFAULT '0',
+  `is_ordered` int(11) NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -69,6 +69,55 @@ CREATE TABLE `customized_order` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `donations`
+--
+
+CREATE TABLE `donations` (
+  `Id` int(50) NOT NULL,
+  `Donor_id` int(50) NOT NULL,
+  `Amount` int(10) NOT NULL,
+  `Purpose` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donation_causes`
+--
+
+CREATE TABLE `donation_causes` (
+  `Id` int(50) NOT NULL,
+  `Purpose` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `donation_causes`
+--
+
+INSERT INTO `donation_causes` (`Id`, `Purpose`) VALUES
+(1, 'Education(Sponsor a child)'),
+(2, 'Women Empowerment'),
+(3, 'Disaster Management Workshops'),
+(4, 'Nutrition Program'),
+(5, 'Environmental Causes '),
+(6, 'General');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donors`
+--
+
+CREATE TABLE `donors` (
+  `Donor_id` int(50) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Phone No` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
@@ -94,14 +143,14 @@ CREATE TABLE `products` (
   `product_image` longblob NOT NULL,
   `category_id` int(11) NOT NULL,
   `team_id` int(11) NOT NULL,
-  `count_purchased` int(11) NOT NULL DEFAULT '0',
+  `count_purchased` int(11) NOT NULL DEFAULT 0,
   `quantity` int(11) NOT NULL,
   `cost` int(11) NOT NULL,
   `tax` int(11) NOT NULL,
-  `is_deleted` int(11) NOT NULL DEFAULT '0',
+  `is_deleted` int(11) NOT NULL DEFAULT 0,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL,
-  `deleted_by` int(11) NOT NULL DEFAULT '0',
+  `deleted_by` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -141,8 +190,8 @@ CREATE TABLE `users` (
   `user_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_phone_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_email_verified` int(11) NOT NULL DEFAULT '0',
-  `is_phone_verified` int(11) NOT NULL DEFAULT '0',
+  `is_email_verified` int(11) NOT NULL DEFAULT 0,
+  `is_phone_verified` int(11) NOT NULL DEFAULT 0,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_role_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -175,6 +224,24 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `customized_order`
   ADD PRIMARY KEY (`customized_order_id`);
+
+--
+-- Indexes for table `donations`
+--
+ALTER TABLE `donations`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `donation_causes`
+--
+ALTER TABLE `donation_causes`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `donors`
+--
+ALTER TABLE `donors`
+  ADD PRIMARY KEY (`Donor_id`);
 
 --
 -- Indexes for table `orders`
@@ -223,6 +290,24 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `customized_order`
   MODIFY `customized_order_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `donations`
+--
+ALTER TABLE `donations`
+  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `donation_causes`
+--
+ALTER TABLE `donation_causes`
+  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `donors`
+--
+ALTER TABLE `donors`
+  MODIFY `Donor_id` int(50) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
