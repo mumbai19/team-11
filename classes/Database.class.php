@@ -2,8 +2,8 @@
 class Database{
     private $host = "localhost";
     private $db_name = "trishul";
-    private $username= "Varun";
-    private $password = "Ishika02*";
+    private $username= "root";
+    private $password = "";
     private $conn = null;
     
     public function __construct(){
