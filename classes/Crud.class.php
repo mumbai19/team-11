@@ -70,7 +70,7 @@ class Crud
        $statement->execute();
        $result = $statement->fetch(PDO::FETCH_ASSOC);
        if($result){ 
-           print_r($result);
+        //    print_r($result);
             $keys = array_keys($result);
             $data["keys"] = $keys;
             $data["result"]=$result; 

@@ -4,7 +4,7 @@ include_once('Database.class.php');
 include_once('Crud.class.php');
 include_once('Helper.class.php');
 include_once('Cipher.class.php');
-
+include_once('Mailer.php');
 
 class User{
     private $table="users";
@@ -34,6 +34,13 @@ class User{
         $sql = "INSERT INTO users (user_name,user_phone_number,email,password,user_role_id,created_at,updated_at) VALUES ('$username','$phone','$email','$password',2,now(),now())";
         $data = Crud::sqlString($this->conn,$sql);
         if($data){
+            $view_user = Crud::read($this->conn,$this->table,"user_id = $data");
+            $keys = $view_user["keys"];
+            $result = $view_user["result"];
+            for($i=0;$i<count($keys);$i++){
+                $this->{$keys[$i]} = $result[$keys[$i]];
+            }
+            $this->sendVerificationEmail($this->email);
             echo "Login";
             // Helper::redirect("login.php");
         }else{
@@ -57,8 +64,10 @@ class User{
                 $this->{$keys[$i]} = $result[$keys[$i]];
             }
             session_start();
-            $_SESSION["user_id"] = $this->user_id; 
+            $_SESSION["user_id"] = $this->user_id;
+
             $this->setCookies($this->user_id,$signed_in);
+            
             if(password_verify($password,$this->password)){
                 // echo "Here";
                 Helper::redirect("category.php");
@@ -121,6 +130,14 @@ class User{
     public function logout(){
         $this->deleteCookies();
         Session::destroySession();
+    }
+
+    public function sendVerificationEmail($user_mail){
+        echo $user_mail;
+        $mailer = new Mailer();
+        $subject = "Trishul";
+        $body = "";
+        echo $mailer->send_mail($user_mail,$subject,"");
     }
 } 
 ?>

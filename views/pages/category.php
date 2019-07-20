@@ -5,7 +5,7 @@ include_once('../../classes/Products.class.php');
 
 $product = new Products();
 
-$limit = 1;     
+$limit = 3;     
 
 if (isset($_GET["page"])) {  
   $pn = $_GET["page"];  
@@ -14,8 +14,10 @@ if (isset($_GET["page"])) {
 };   
  
 $start_from = ($pn-1) * $limit;   
-
+echo isset($_POST["search"]);
+echo isset($_POST['keywords']); 
 if(isset($_POST["search"]) && isset($_POST['keywords'])){
+  // print_r($_POST['keywords']);
   $product_details = $product->viewProductsBySearch($_POST['keywords']," LIMIT $start_from, $limit");   
 }else{
   $product_details = $product->viewAllProducts("LIMIT $start_from, $limit");
@@ -63,14 +65,16 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
               </select>
             </div>
             <div class="mr-auto"></div>
-            <div>
-              <div class="input-group filter-bar-search">
-                <input type="text" placeholder="Search">
-                <div class="input-group-append">
-                  <button type="button"><i class="ti-search"></i></button>
-                </div>
-              </div>
+            <form action="#" method="POST">
+            <div>              
+                <div class="input-group filter-bar-search">
+                  <input type="text" placeholder="Search" name="keywords">
+                  <div class="input-group-append">
+                    <button type="submit" name="search"><i class="ti-search"></i></button>
+                  </div>
+                </div>               
             </div>
+            </form>
           </div>
           <!-- End Filter Bar -->
           <!-- Start Best Seller -->

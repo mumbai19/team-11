@@ -35,7 +35,7 @@ class Products{
         return $result;
     }
     function viewProductsBySearch($keywords,$condition){
-        $result = Crud::readAll($this->conn,$this->table,"flavour LIKE '%{$keywords}%' $condition");
+        $result = Crud::readAll($this->conn,$this->table,"product_name LIKE '%{$keywords}%' OR cost LIKE '%{$keywords}%' $condition");
         return $result;
     }
 
