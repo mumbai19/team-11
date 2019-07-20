@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 03:35 PM
+-- Generation Time: Jul 20, 2019 at 05:54 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `trishul`
+-- Database: `trishul1`
 --
 
 -- --------------------------------------------------------
@@ -76,7 +76,8 @@ CREATE TABLE `donations` (
   `Id` int(50) NOT NULL,
   `Donor_id` int(50) NOT NULL,
   `Amount` int(10) NOT NULL,
-  `Purpose` int(10) NOT NULL
+  `Purpose` varchar(100) NOT NULL,
+  `Status` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -112,7 +113,7 @@ CREATE TABLE `donors` (
   `Donor_id` int(50) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Phone No` int(10) NOT NULL
+  `Phone no` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -295,7 +296,7 @@ ALTER TABLE `customized_order`
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
-  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `donation_causes`
@@ -307,7 +308,7 @@ ALTER TABLE `donation_causes`
 -- AUTO_INCREMENT for table `donors`
 --
 ALTER TABLE `donors`
-  MODIFY `Donor_id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `Donor_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders`
