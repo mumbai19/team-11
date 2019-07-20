@@ -1,6 +1,27 @@
 <?php
-include_once(''../layouts/header.php'');
-include_once(''../layouts/navbar.php'');
+ob_start();
+include_once('../layouts/header.php');
+include_once('../layouts/navbar.php');
+include_once('../../classes/Products.class.php');
+include_once('../../classes/Cart.class.php');
+include_once('../../classes/Helper.class.php');
+
+
+$product = new Products();
+$cart = new Cart();
+$cart_products = $cart->viewCart();
+
+if(isset($_POST['cart'])){
+    for($i=0;$i<count($cart_products);$i++){
+        $cart->updateCartProductQuantity($cart_products[$i]['cart_id'],$_POST[$cart_products[$i]['product_id']]);
+    }
+}
+
+if(isset($_POST['deletebtn'])){
+    if(isset($_POST['cart_id'])){
+        $cart->deleteProductFromCart($_POST['cart_id']);
+    }
+}
 ?>
   <!--================Cart Area =================-->
   <section class="cart_area">

@@ -14,15 +14,11 @@ if (isset($_GET["page"])) {
 };   
  
 $start_from = ($pn-1) * $limit;   
-echo isset($_POST["search"]);
-echo isset($_POST['keywords']); 
 if(isset($_POST["search"]) && isset($_POST['keywords'])){
-  // print_r($_POST['keywords']);
   $product_details = $product->viewProductsBySearch($_POST['keywords']," LIMIT $start_from, $limit");   
 }else{
   $product_details = $product->viewAllProducts("LIMIT $start_from, $limit");
 }
-
 
 $total_records = count($product_details);   
 $total_pages = ceil($total_records / $limit);  
@@ -85,17 +81,16 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
             ?> 
               <div class="col-md-6 col-lg-4">
                 <div class="card text-center card-product">
+                <?php echo "<a href=single-product.php?id=",$product_details[$i]['product_id'],">";?>
                   <div class="card-product__img">
                   <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $product_details[$i]['product_image'] ).'" style="width:255px;height:271px"/>';?>
                     <ul class="card-product__imgOverlay">
-                      <li><button><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
+                        <li><button><i class="ti-shopping-cart"></i></button></li>                        
                     </ul>
                   </div>
                   <div class="card-body">
                     <p>Accessories</p>
-                    <h4 class="card-product__title"><a href="#"><?php echo $product_details[$i]['product_name']?></a></h4>
+                    <h4 class="card-product__title"><a href=""><?php echo $product_details[$i]['product_name']?></a></h4>
                     <p class="card-product__price"><?php echo "Rs.".$product_details[$i]['cost']?></p>
                   </div>
                 </div>

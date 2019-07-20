@@ -65,7 +65,7 @@ class User{
             }
             session_start();
             $_SESSION["user_id"] = $this->user_id;
-
+            echo $_SESSION["user_id"];
             $this->setCookies($this->user_id,$signed_in);
 
             if(password_verify($password,$this->password)){
@@ -136,7 +136,7 @@ class User{
         echo $user_mail;
         $mailer = new Mailer();
         $subject = "<h2>Trishul-<i>Verification Mail</i><h2>";
-        $body = "<p>Thank you for registering with us.<br>Click <a href="">here</a> to get started";
+        $body = "<p>Thank you for registering with us.<br>Click <a>here</a> to get started</p>";
         echo $mailer->send_mail($user_mail,$subject,"");
     }
 }
