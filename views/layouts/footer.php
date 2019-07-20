@@ -7,8 +7,7 @@
 						<div class="single-footer-widget tp_widgets">
 							<h4 class="footer_title large_title">Our Mission</h4>
 							<p>
-								So seed seed green that winged cattle in. Gathering thing made fly you're no
-								divided deep moved us lan Gathering thing us land years living.
+							Over last two decades, we have impacted and helped improve the quality of life for more than 50,000 families in the surrounding areas via several projects like Trishul Women Empowerment Program; Trishul Learning Centre; BMC Dattakbasti Program (hygiene and sanitation, waste management etc), education, health and nutrition, disaster management, youth empowerment and environment conservation.
 							</p>
 							<p>
 								So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved
@@ -21,9 +20,9 @@
 							<ul class="list">
 								<li><a href="#">Home</a></li>
 								<li><a href="#">Shop</a></li>
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">Product</a></li>
-								<li><a href="#">Brand</a></li>
+								<!-- <li><a href="#">Blog</a></li> -->
+								<!-- <li><a href="#">Product</a></li> -->
+								<li><a href="#">Donate</a></li>
 								<li><a href="#">Contact</a></li>
 							</ul>
 						</div>
@@ -80,7 +79,7 @@
 				<div class="row d-flex">
 					<p class="col-lg-12 footer-text text-center">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> for <a href="https://colorlib.com" target="_blank">Code For Good.</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 				</div>
 			</div>
