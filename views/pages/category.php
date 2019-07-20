@@ -1,6 +1,28 @@
 <?php
 include_once('../layouts/header.php');
 include_once('../layouts/navbar.php');
+include_once('../../classes/Products.class.php');
+
+$product = new Products();
+$product_details = $product->getAllProducts();
+// print_r($product_details);
+
+$limit = 6;  // Number of entries to show in a page. 
+// Look for a GET variable page if not found default is 1.   
+
+if (isset($_GET["page"])) {  
+    $pn  = $_GET["page"];  
+}  
+else {  
+    $pn=1;  
+};   
+ 
+$start_from = ($pn-1) * $limit;   
+
+$total_records = count($product_details);   
+$total_pages = ceil($total_records / $limit);  
+$k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn)); 
+
 ?>
 <style>
 .card-img{
@@ -80,10 +102,13 @@ include_once('../layouts/navbar.php');
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
             <div class="row">
+            <?php
+                for($i=0;$i<count($product_details);$i++){
+            ?> 
               <div class="col-md-6 col-lg-4">
                 <div class="card text-center card-product">
                   <div class="card-product__img">
-                    <img class="card-img" src="../img/product/product1.png" alt="">
+                  <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $product_details[$i]['product_image'] ).'" style="width:255px;height:271px"/>';?>
                     <ul class="card-product__imgOverlay">
                       <li><button><i class="ti-search"></i></button></li>
                       <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -92,152 +117,55 @@ include_once('../layouts/navbar.php');
                   </div>
                   <div class="card-body">
                     <p>Accessories</p>
-                    <h4 class="card-product__title"><a href="#">Quartz Belt Watch</a></h4>
-                    <p class="card-product__price">$150.00</p>
+                    <h4 class="card-product__title"><a href="#"><?php echo $product_details[$i]['product_name']?></a></h4>
+                    <p class="card-product__price"><?php echo $product_details[$i]['cost']?></p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="card text-center card-product">
-                  <div class="card-product__img">
-                    <img class="card-img" src="../img/product/product2.png" alt="">
-                    <ul class="card-product__imgOverlay">
-                      <li><button><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <p>Beauty</p>
-                    <h4 class="card-product__title"><a href="#">Women Freshwash</a></h4>
-                    <p class="card-product__price">$150.00</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="card text-center card-product">
-                  <div class="card-product__img">
-                    <img class="card-img" src="../img/product/product3.png" alt="">
-                    <ul class="card-product__imgOverlay">
-                      <li><button><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <p>Decor</p>
-                    <h4 class="card-product__title"><a href="#">Room Flash Light</a></h4>
-                    <p class="card-product__price">$150.00</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="card text-center card-product">
-                  <div class="card-product__img">
-                    <img class="card-img" src="../img/product/product4.png" alt="">
-                    <ul class="card-product__imgOverlay">
-                      <li><button><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <p>Decor</p>
-                    <h4 class="card-product__title"><a href="#">Room Flash Light</a></h4>
-                    <p class="card-product__price">$150.00</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="card text-center card-product">
-                  <div class="card-product__img">
-                    <img class="card-img" src="../img/product/product5.png" alt="">
-                    <ul class="card-product__imgOverlay">
-                      <li><button><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <p>Accessories</p>
-                    <h4 class="card-product__title"><a href="#">Man Office Bag</a></h4>
-                    <p class="card-product__price">$150.00</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="card text-center card-product">
-                  <div class="card-product__img">
-                    <img class="card-img" src="../img/product/product6.png" alt="">
-                    <ul class="card-product__imgOverlay">
-                      <li><button><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <p>Kids Toy</p>
-                    <h4 class="card-product__title"><a href="#">Charging Car</a></h4>
-                    <p class="card-product__price">$150.00</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="card text-center card-product">
-                  <div class="card-product__img">
-                    <img class="card-img" src="../img/product/product7.png" alt="">
-                    <ul class="card-product__imgOverlay">
-                      <li><button><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <p>Accessories</p>
-                    <h4 class="card-product__title"><a href="#">Blutooth Speaker</a></h4>
-                    <p class="card-product__price">$150.00</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="card text-center card-product">
-                  <div class="card-product__img">
-                    <img class="card-img" src="../img/product/product8.png" alt="">
-                    <ul class="card-product__imgOverlay">
-                      <li><button><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <p>Kids Toy</p>
-                    <h4 class="card-product__title"><a href="#">Charging Car</a></h4>
-                    <p class="card-product__price">$150.00</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="card text-center card-product">
-                  <div class="card-product__img">
-                    <img class="card-img" src="../img/product/product1.png" alt="">
-                    <ul class="card-product__imgOverlay">
-                      <li><button><i class="ti-search"></i></button></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <p>Accessories</p>
-                    <h4 class="card-product__title"><a href="#">Quartz Belt Watch</a></h4>
-                    <p class="card-product__price">$150.00</p>
-                  </div>
-                </div>
-              </div>
+              <?php 
+                }
+              ?>
+              <?php
+                  if($pn>=2){
+                    ?> 
+                    <li class=page-item><a class=page-link href=<?php echo "category.php?page=".($pn-1);?> tabindex="-1">Previous</a></li>  
+                  <?php 
+                  }else{
+                    ?>
+                    <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                  </li>
+                  <?php
+                  } 
+                  for($i=1;$i<=3;$i++){?>
+                  <li class="page-item"><a class="page-link" href=<?php echo "category.php?page=".$i; ?>><?php echo $i;?></a></li>
+                  <?php 
+                  }
+                  ?>
+                  <?php
+                  if($pn<$total_pages){ 
+                  ?>
+                    <li class="page-item">
+                    <a class="page-link" href=<?php echo "category.php?page=".($pn+1); ?>>Next</a>
+                  </li>   
+                  <?php
+                  }else{ 
+                  ?>
+                    <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Next</a>
+                  </li>
+                  <?php
+                  }
+                  ?>                        
             </div>
+            
           </section>
           <!-- End Best Seller -->
+          
         </div>
+        
       </div>
+      
     </div>
   </section>
 	<!-- ================ category section end ================= -->

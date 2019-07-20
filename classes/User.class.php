@@ -60,8 +60,8 @@ class User{
             $_SESSION["user_id"] = $this->user_id; 
             $this->setCookies($this->user_id,$signed_in);
             if(password_verify($password,$this->password)){
-                echo "Here";
-                // Helper::redirect("category.php");
+                // echo "Here";
+                Helper::redirect("category.php");
             }else{
                 //Set toastr here and redirect to login 
                 echo "Password";    
