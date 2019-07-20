@@ -1,6 +1,36 @@
 <?php
 include_once('../layouts/header.php');
 include_once('../layouts/navbar.php');
+include_once('../../classes/User.class.php');
+include_once('../../classes/Helper.class.php');
+
+if(isset($_POST["loginName"])){
+    if(isset($_POST["email"]) && isset($_POST["password"])){
+        $data["email"] = $_POST["email"];
+        $data["password"] = $_POST["password"];
+        $user = new User();
+        $signed_in = isset($_POST["remember_me"]);
+        $user->login($data,$signed_in);
+    }else{
+        Helper::redirect("");
+    }  
+}
+
+if(isset($_POST["register"])){
+    if(isset($_POST["user_name"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["phone"])){
+      $data["user_name"] = $_POST["user_name"];
+      $data["email"] = $_POST["email"];
+      $data["password"] = $_POST["password"];
+      $data["phone"] = $_POST["phone"];
+      $user = new User();
+      $user->register($data);
+    }else{
+      Helper::redirect("");      
+    }
+}
+
+
+
 ?>
 <style>
 .card-img{
@@ -37,73 +67,83 @@ include_once('../layouts/navbar.php');
             </ul>
 
             <!-- Tab panels -->
+            
             <div class="tab-content">
               <!--Panel 7-->
               <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
 
                 <!--Body-->
+                <form method="POST">
                 <div class="modal-body mb-1">
-                  <div class="md-form form-sm mb-5">
-                    <i class="fas fa-envelope prefix"></i>
-                    <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-                    <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
-                  </div>
-
-                  <div class="md-form form-sm mb-4">
-                    <i class="fas fa-lock prefix"></i>
-                    <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-                    <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
-                  </div>
-                  <div class="text-center mt-2">
-                    <button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
-                  </div>
+                    <div class="md-form form-sm mb-5">
+                      <i class="fas fa-envelope prefix"></i>
+                      <input type="email" name="email" id="email" class="form-control form-control-sm validate">
+                      <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
+                    </div>
+                    <div class="md-form form-sm mb-4">
+                      <i class="fas fa-lock prefix"></i>
+                      <input type="password" name="password" id="password" class="form-control form-control-sm validate">
+                      <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" name="remember_me">
+                      <label class="form-check-label">Remember me!</label>
+                    </div> 
+                    <div class="text-center mt-2">
+                      <button type="submit" name="loginName"  class="" value="submit">Log in<i class="fas fa-sign-in ml-1"></i></button>
+                    </div>
                 </div>
+                </form>
+                
                 <!--Footer-->
-                <div class="modal-footer">
-                  <div class="options text-center text-md-right mt-1">
-                    <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                    <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+               
+                  <div class="modal-footer">
+                    <div class="options text-center text-md-right mt-1">
+                      <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+                      <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+                    </div>
+                    <button type="button"  class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
                   </div>
-                  <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                </div>
-
+               
               </div>
               <!--/.Panel 7-->
 
               <!--Panel 8-->
               <div class="tab-pane fade" id="panel8" role="tabpanel">
-
+              <form method="POST">
                 <!--Body-->
                 <div class="modal-body">
+
+                <div class="md-form form-sm mb-5">
+                    <i class="fas fa-envelope prefix"></i>
+                    <input type="text" name="user_name" id="modalLRInput12" class="form-control form-control-sm validate">
+                    <label data-error="wrong" data-success="right" for="modalLRInput12">Your Name</label>
+                  </div>
+
                   <div class="md-form form-sm mb-5">
                     <i class="fas fa-envelope prefix"></i>
-                    <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                    <input type="email" name="email" id="modalLRInput12" class="form-control form-control-sm validate">
                     <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
                   </div>
 
                   <div class="md-form form-sm mb-5">
-                    <i class="fas fa-envelope prefix"></i>
-                    <input type="number" id="modalLRInput12" class="form-control form-control-sm validate">
-                    <label data-error="wrong" data-success="right" for="modalLRInput12">Your mobile number</label>
-                  </div>
-
-                  <div class="md-form form-sm mb-5">
                     <i class="fas fa-lock prefix"></i>
-                    <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                    <input type="password" name="password" id="modalLRInput13" class="form-control form-control-sm validate">
                     <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
                   </div>
 
                   <div class="md-form form-sm mb-4">
                     <i class="fas fa-lock prefix"></i>
-                    <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                    <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+                    <input type="text" name="phone" id="modalLRInput14" class="form-control form-control-sm validate">
+                    <label data-error="wrong" data-success="right" for="modalLRInput14">Phone</label>
                   </div>
 
                   <div class="text-center form-sm mt-2">
-                    <button class="btn btn-info">Sign up <i class="fas fa-sign-in ml-1"></i></button>
+                    <button class="btn btn-info" name="register">Sign up<i class="fas fa-sign-in ml-1"></i></button>
                   </div>
-
+               
                 </div>
+                </form>
                 <!--Footer-->
                 <div class="modal-footer">
                   <div class="options text-right">

@@ -20,7 +20,7 @@
         $query = "SELECT Donor_id from donors WHERE email='$email'";
         $exists = $conn->query($query);
         if(!mysqli_num_rows($exists)){
-            $ins = "INSERT into donors(Name,Email) VALUES ('".$name."','".$email."','".$phno."')";
+            $ins = "INSERT into donors(Name,Email,Phone_no) VALUES ('".$name."','".$email."','".$phno."')";
             $conn->query($ins);
         }
         $getid = "SELECT donor_id from donors where email ='$email'";

@@ -1,7 +1,11 @@
 <?php
+
 include_once('Database.class.php');
 include_once('Crud.class.php');
 include_once('Helper.class.php');
+include_once('Cipher.class.php');
+include_once('Mailer.php');
+
 class User{
     private $table="users";
     private $user_name;
@@ -17,42 +21,64 @@ class User{
 
     public function __construct(){
         $db = new Database();
-        $this->conn = $db->getConnection();
-        session_start();   
+        $this->conn = $db->getConnection();   
     }
 
 
-    function registerUser($data){
-        print_r($data);
-        $data["password"] = password_hash($data["password"],PASSWORD_DEFAULT);
-        $data["user_role_id"] = 2;
-        $data = Crud::create($this->conn,$this->table,$data);
+    function register($data){
+        $username = $data["user_name"];
+        $email = $data["email"];
+        $phone = $data["phone"];
+        $password = password_hash($data["password"],PASSWORD_DEFAULT);
+        // $data["user_role_id"] = 2;
+        $sql = "INSERT INTO users (user_name,user_phone_number,email,password,user_role_id,created_at,updated_at) VALUES ('$username','$phone','$email','$password',2,now(),now())";
+        $data = Crud::sqlString($this->conn,$sql);
         if($data){
-            Helper::redirect("login.php");
+            $view_user = Crud::read($this->conn,$this->table,"user_id = $data");
+            $keys = $view_user["keys"];
+            $result = $view_user["result"];
+            for($i=0;$i<count($keys);$i++){
+                $this->{$keys[$i]} = $result[$keys[$i]];
+            }
+            $this->sendVerificationEmail($this->email);
+            echo "Login";
+            // Helper::redirect("login.php");
+        }else{
+            // Helper::redirect("register.php");
+            echo "Register";
         }    
     }
 
     public function login($data,$signed_in){
-        $user_email = $data["user_email"];
+        $user_email = $data["email"];
         $user_password =  $data["password"];
-        $user_data = Crud::read($this->conn,$this->table,"user_email=$user_email");
+        $condition = "email='$user_email'";
+        // echo $condition;
+        $user_data = Crud::read($this->conn,$this->table,$condition);
         $password=$data["password"];
+        // $user_data;
         if($user_data){
-            $keys = $data["keys"];
-            $result = $data["result"];
+            $keys = $user_data["keys"];
+            $result = $user_data["result"];
             for($i=0;$i<count($keys);$i++){
                 $this->{$keys[$i]} = $result[$keys[$i]];
             }
-            $_SESSION["user_id"] = $user_data["user_id"]; 
+            session_start();
+            $_SESSION["user_id"] = $this->user_id;
+
             $this->setCookies($this->user_id,$signed_in);
+            
             if(password_verify($password,$this->password)){
+                // echo "Here";
                 Helper::redirect("category.php");
             }else{
-                //Set toastr here and redirect to login     
-                Helper::redirect("login.php");
+                //Set toastr here and redirect to login 
+                echo "Password";    
+                // Helper::redirect("index.php");
             }
         }else{
-            Helper::redirect("login.php");
+            echo "Module";
+            // Helper::redirect("index.php");
         }        
     }
     
@@ -104,6 +130,14 @@ class User{
     public function logout(){
         $this->deleteCookies();
         Session::destroySession();
+    }
+
+    public function sendVerificationEmail($user_mail){
+        echo $user_mail;
+        $mailer = new Mailer();
+        $subject = "Trishul";
+        $body = "";
+        echo $mailer->send_mail($user_mail,$subject,"");
     }
 } 
 ?>
