@@ -1,5 +1,5 @@
-<?php 
-$conn = mysqli_connect("localhost","root","","trishul1")
+<?php
+$conn = mysqli_connect("localhost","root","","trishul")
 ?>
 <form action='pay.php' method="POST">
 <input name="name" type = "text" placeholder="Name">

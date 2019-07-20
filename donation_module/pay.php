@@ -1,6 +1,6 @@
 <?php
     include 'instamojo/Instamojo.php';
-    $conn = mysqli_connect("localhost","root","","trishul1");
+    $conn = mysqli_connect("localhost","root","","trishul");
     $api = new Instamojo\Instamojo('test_5d8df9b6000ceaf1162fcd03087', 'test_cf0ed12659833eb2901b558535d','https://test.instamojo.com/api/1.1/');
     try {
         $response = $api->paymentRequestCreate(array(
