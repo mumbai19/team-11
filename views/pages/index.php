@@ -82,6 +82,12 @@ include_once('../layouts/navbar.php');
                   </div>
 
                   <div class="md-form form-sm mb-5">
+                    <i class="fas fa-envelope prefix"></i>
+                    <input type="number" id="modalLRInput12" class="form-control form-control-sm validate">
+                    <label data-error="wrong" data-success="right" for="modalLRInput12">Your mobile number</label>
+                  </div>
+
+                  <div class="md-form form-sm mb-5">
                     <i class="fas fa-lock prefix"></i>
                     <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
                     <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
