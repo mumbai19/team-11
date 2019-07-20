@@ -47,7 +47,7 @@
           <ul class="nav-shop">
             <li class="nav-item"><button><i class="ti-search"></i></button></li>
             <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-            <li class="nav-item"><a class="button button-header" href="#">Login</a></li>
+            <li class="nav-item"><a class="button button-header" href="" data-toggle="modal" data-target="#modalLRForm" >Login</a></li>
           </ul>
         </div>
       </div>
