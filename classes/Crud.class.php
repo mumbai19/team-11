@@ -57,7 +57,7 @@ class Crud
     
     public static function readAll($conn,$table,$condition){
         $sql = "SELECT * FROM {$table} WHERE $condition";
-        
+        // echo $sql;
         $statement = $conn->prepare($sql);
         $statement->execute();
         $result = $statement->fetchAll();

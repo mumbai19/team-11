@@ -4,20 +4,23 @@ include_once('../layouts/navbar.php');
 include_once('../../classes/Products.class.php');
 
 $product = new Products();
-$product_details = $product->getAllProducts();
-// print_r($product_details);
 
-$limit = 6;  // Number of entries to show in a page. 
-// Look for a GET variable page if not found default is 1.   
+$limit = 1;     
 
 if (isset($_GET["page"])) {  
-    $pn  = $_GET["page"];  
-}  
-else {  
-    $pn=1;  
+  $pn = $_GET["page"];  
+}else {  
+  $pn=1;  
 };   
  
 $start_from = ($pn-1) * $limit;   
+
+if(isset($_POST["search"]) && isset($_POST['keywords'])){
+  $product_details = $product->viewProductsBySearch($_POST['keywords']," LIMIT $start_from, $limit");   
+}else{
+  $product_details = $product->viewAllProducts("LIMIT $start_from, $limit");
+}
+
 
 $total_records = count($product_details);   
 $total_pages = ceil($total_records / $limit);  
@@ -49,35 +52,6 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
               </li>
             </ul>
           </div>
-          <!-- <div class="sidebar-filter">
-            <div class="top-filter-head">Product Filters</div>
-            <div class="common-filter">
-              <div class="head">Brands</div>
-              <form action="#">
-                <ul>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
-                </ul>
-              </form>
-            </div>
-            <div class="common-filter">
-              <div class="head">Color</div>
-              <form action="#">
-                <ul>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Black
-                      Leather<span>(29)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Black
-                      with red<span>(19)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-                  <li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
-                </ul>
-              </form>
-            </div>
-          </div> -->
         </div>
         <div class="col-xl-9 col-lg-8 col-md-7">
           <!-- Start Filter Bar -->
@@ -118,14 +92,17 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
                   <div class="card-body">
                     <p>Accessories</p>
                     <h4 class="card-product__title"><a href="#"><?php echo $product_details[$i]['product_name']?></a></h4>
-                    <p class="card-product__price"><?php echo $product_details[$i]['cost']?></p>
+                    <p class="card-product__price"><?php echo "Rs.".$product_details[$i]['cost']?></p>
                   </div>
                 </div>
               </div>
               <?php 
                 }
-              ?>
-              <?php
+              ?>                        
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                  <?php
                   if($pn>=2){
                     ?> 
                     <li class=page-item><a class=page-link href=<?php echo "category.php?page=".($pn-1);?> tabindex="-1">Previous</a></li>  
@@ -156,9 +133,9 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
                   </li>
                   <?php
                   }
-                  ?>                        
-            </div>
-            
+                  ?>                
+                </ul>
+              </nav>
           </section>
           <!-- End Best Seller -->
           

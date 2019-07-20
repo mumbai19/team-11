@@ -30,6 +30,15 @@ class Products{
         return $data;
     }
 
+    function viewAllProducts($condition){
+        $result = Crud::readAll($this->conn,$this->table,"is_deleted=0 AND quantity>0 ".$condition);
+        return $result;
+    }
+    function viewProductsBySearch($keywords,$condition){
+        $result = Crud::readAll($this->conn,$this->table,"flavour LIKE '%{$keywords}%' $condition");
+        return $result;
+    }
+
 }
 
 ?>
