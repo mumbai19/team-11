@@ -1,0 +1,17 @@
+{
+    "name": "sendotp/sendotp",
+    "authors": [
+        {
+            "name": "Dhiren Chotwani",
+            "email": "dhirenchotwani@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "sendotp\\": "src/"
+        }
+    },
+    "require": {
+              "sendotp/sendotp": "^1.0"
+          }
+}

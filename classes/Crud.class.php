@@ -1,7 +1,19 @@
 <?php
 
 class Crud
-{
+{   
+    public static function sqlString($conn,$sql){
+        // echo $sql;
+        $ps = $conn->prepare($sql);
+        
+        $result = $ps->execute();
+        
+        if($result){
+            return $conn->lastInsertId();
+        }else{
+            return false;
+        }   
+    } 
     
     public static function create($conn,$table,$data){
         $keys = array_keys($data);
@@ -57,8 +69,8 @@ class Crud
        $statement = $conn->prepare($sql);
        $statement->execute();
        $result = $statement->fetch(PDO::FETCH_ASSOC);
-        
        if($result){ 
+           print_r($result);
             $keys = array_keys($result);
             $data["keys"] = $keys;
             $data["result"]=$result; 

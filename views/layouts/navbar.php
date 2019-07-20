@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!--================ Start Header Menu Area =================-->
 <header class="header_area">
   <div class="main_menu">
