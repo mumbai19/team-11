@@ -8,7 +8,7 @@
             "amount" => $_POST['amount'],
             "send_email" => true,
             "email" => $_POST['email'],
-            "redirect_url" => "http://localhost/paymentportal/thankyou.php",
+            "redirect_url" => "http://localhost/trishul/team-11/views/pages/thankyou.php",
             "buyer_name" => $_POST['name'],
             "phone" => $_POST['phno']
             ));
