@@ -21,7 +21,7 @@ class User{
 
     public function __construct(){
         $db = new Database();
-        $this->conn = $db->getConnection();   
+        $this->conn = $db->getConnection();
     }
 
 
@@ -46,7 +46,7 @@ class User{
         }else{
             // Helper::redirect("register.php");
             echo "Register";
-        }    
+        }
     }
 
     public function login($data,$signed_in){
@@ -67,21 +67,21 @@ class User{
             $_SESSION["user_id"] = $this->user_id;
 
             $this->setCookies($this->user_id,$signed_in);
-            
+
             if(password_verify($password,$this->password)){
                 // echo "Here";
                 Helper::redirect("category.php");
             }else{
-                //Set toastr here and redirect to login 
-                echo "Password";    
+                //Set toastr here and redirect to login
+                echo "Password";
                 // Helper::redirect("index.php");
             }
         }else{
             echo "Module";
             // Helper::redirect("index.php");
-        }        
+        }
     }
-    
+
     private function setCookies($user_id,$signed_in){
         if($signed_in){
             $cookie_name = "Trishul";
@@ -91,7 +91,7 @@ class User{
             setcookie($cookie_name, $cookie_content, $cookie_time, $path);
         }else{
 
-            $cookie_name = "Trishul";  
+            $cookie_name = "Trishul";
             $cookie_content = Cipher::encrypt_decrypt('encrypt', $user_id);
             $cookie_time = time() + 3600;
             $path = "/";
@@ -101,7 +101,7 @@ class User{
 
     public function deleteCookies(){
         $cookie_name = "Trishul";
-        $user_id_to_logout = $_SESSION['user_id'];  
+        $user_id_to_logout = $_SESSION['user_id'];
         $cookie_content = $user_id_to_logout;
         $cookie_time = time() - 86400 * 30;
         $path = "/";
@@ -117,11 +117,11 @@ class User{
             $condition = "user_id='$user_id'";
             $data = Crud::read($this->conn,$this->table,$condition);
             $result = $data["result"];
-            
+
             if(isset($result["user_phone_number"])){
                 Session::startSession($user_id);
                 return true;
-            }            
+            }
         }else{
             return false;
         }
@@ -135,9 +135,9 @@ class User{
     public function sendVerificationEmail($user_mail){
         echo $user_mail;
         $mailer = new Mailer();
-        $subject = "Trishul";
-        $body = "";
+        $subject = "<h2>Trishul-<i>Verification Mail</i><h2>";
+        $body = "<p>Thank you for registering with us.<br>Click <a href="">here</a> to get started";
         echo $mailer->send_mail($user_mail,$subject,"");
     }
-} 
+}
 ?>
