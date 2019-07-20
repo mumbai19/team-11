@@ -21,9 +21,7 @@
 							<ul class="list">
 								<li><a href="#">Home</a></li>
 								<li><a href="#">Shop</a></li>
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">Product</a></li>
-								<li><a href="#">Brand</a></li>
+								<li><a href="#">Donate</a></li>
 								<li><a href="#">Contact</a></li>
 							</ul>
 						</div>
@@ -49,15 +47,15 @@
 									<span class="fa fa-location-arrow"></span>
 									Head Office
 								</p>
-								<p>123, Main Street, Your City</p>
+								<p>131/4, Trishul Women Empowerment Program, Part After Welfare High School Ground, Aram Nagar Rd, Aram Nagar Part 1, Aram Nagar, Versova, Andheri West, Mumbai, Maharashtra 400061</p>
 
 								<p class="sm-head">
 									<span class="fa fa-phone"></span>
 									Phone Number
 								</p>
 								<p>
-									+123 456 7890 <br>
-									+123 456 7890
+									9821694994 <br>
+									9819983722
 								</p>
 
 								<p class="sm-head">
@@ -65,8 +63,8 @@
 									Email
 								</p>
 								<p>
-									free@infoexample.com <br>
-									www.infoexample.com
+									lopa@trishul-ngo.org <br>
+									info@trishul-ngo.org
 								</p>
 							</div>
 						</div>
@@ -80,7 +78,7 @@
 				<div class="row d-flex">
 					<p class="col-lg-12 footer-text text-center">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Made with <i class="fa fa-heart" style="color:red" aria-hidden="true"></i> at <a>#CodeForGood</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 				</div>
 			</div>
@@ -98,6 +96,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="../vendors/jquery.ajaxchimp.min.js"></script>
   <script src="../vendors/mail-script.js"></script>
   <script src="../js/main.js"></script>
-  <script>
 </body>
 </html>

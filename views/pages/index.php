@@ -32,6 +32,15 @@ if(isset($_POST["register"])){
 
 
 ?>
+<style>
+.card-img{
+  height: 300px;
+}
+.img-fluid{
+  height: 320px;
+}
+</style>
+
   <main class="site-main">
     <!--Modal: Login / Register Form-->
     <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -118,6 +127,12 @@ if(isset($_POST["register"])){
                   </div>
 
                   <div class="md-form form-sm mb-5">
+                    <i class="fas fa-envelope prefix"></i>
+                    <input type="number" id="modalLRInput12" class="form-control form-control-sm validate">
+                    <label data-error="wrong" data-success="right" for="modalLRInput12">Your mobile number</label>
+                  </div>
+
+                  <div class="md-form form-sm mb-5">
                     <i class="fas fa-lock prefix"></i>
                     <input type="password" name="password" id="modalLRInput13" class="form-control form-control-sm validate">
                     <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
@@ -168,9 +183,10 @@ if(isset($_POST["register"])){
           </div>
           <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
             <div class="hero-banner__content">
-              <h4>Shop is fun</h4>
-              <h1>Browse Our Premium Product</h1>
-              <p>Us which over of signs divide dominion deep fill bring they're meat beho upon own earth without morning over third. Their male dry. They are great appear whose land fly grass.</p>
+              <h4>Shopping is fun, especially when it helps someone.</h4>
+              <h1>Browse Our Product</h1>
+              <p>Our products combine the arts of delicate hand embroidery and simple but elegant Warli Paintings and Intricate Madhubani paintings. From crafting the products to finishing and packaging all the work is done by women from lower income communities.
+</p>
               <a class="button button-hero" href="#">Browse Now</a>
             </div>
           </div>
@@ -218,7 +234,7 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="../img/product/product1.png" alt="">
+                <img class="card-img" src="../img/product/product-tr1.png" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -235,7 +251,7 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="../img/product/product2.png" alt="">
+                <img class="card-img" src="../img/product/product-tr2.png" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -252,7 +268,7 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="../img/product/product3.png" alt="">
+                <img class="card-img" src="../img/product/product-tr3.png" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -269,7 +285,7 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="../img/product/product4.png" alt="">
+                <img class="card-img" src="../img/product/product-tr4.png" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -286,7 +302,7 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="../img/product/product5.png" alt="">
+                <img class="card-img" src="../img/product/product-tr5.png" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -303,7 +319,7 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="../img/product/product6.png" alt="">
+                <img class="card-img" src="../img/product/product-tr6.png" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -320,7 +336,7 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="../img/product/product7.png" alt="">
+                <img class="card-img" src="../img/product/product-tr7.png" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -337,7 +353,7 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="../img/product/product8.png" alt="">
+                <img class="card-img" src="../img/product/product-tr8.png" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -363,9 +379,9 @@ if(isset($_POST["register"])){
         <div class="row">
           <div class="col-xl-5">
             <div class="offer__content text-center">
-              <h3>Up To 50% Off</h3>
-              <h4>Winter Sale</h4>
-              <p>Him she'd let them sixth saw light</p>
+              <h3>Up To 10% Off</h3>
+              <h4>Good deed always pay.</h4>
+              <p>Share trishul with your friend and get an option to be credited with 10% discount or you can donate that amount for good cause.</p>
               <a class="button button--active mt-3 mt-xl-4" href="#">Shop Now</a>
             </div>
           </div>
@@ -384,7 +400,7 @@ if(isset($_POST["register"])){
         <div class="owl-carousel owl-theme" id="bestSellerCarousel">
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product1.png" alt="">
+              <img class="img-fluid" src="../img/product/product-tr1.png" alt="">
               <ul class="card-product__imgOverlay">
                 <li><button><i class="ti-search"></i></button></li>
                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -400,7 +416,7 @@ if(isset($_POST["register"])){
 
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product2.png" alt="">
+              <img class="img-fluid" src="../img/product/product-tr2.png" alt="">
               <ul class="card-product__imgOverlay">
                 <li><button><i class="ti-search"></i></button></li>
                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -416,7 +432,7 @@ if(isset($_POST["register"])){
 
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product3.png" alt="">
+              <img class="img-fluid" src="../img/product/product-tr3.png" alt="">
               <ul class="card-product__imgOverlay">
                 <li><button><i class="ti-search"></i></button></li>
                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -432,7 +448,7 @@ if(isset($_POST["register"])){
 
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product4.png" alt="">
+              <img class="img-fluid" src="../img/product/product-tr4.png" alt="">
               <ul class="card-product__imgOverlay">
                 <li><button><i class="ti-search"></i></button></li>
                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -448,7 +464,7 @@ if(isset($_POST["register"])){
 
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product1.png" alt="">
+              <img class="img-fluid" src="../img/product/product-tr1.png" alt="">
               <ul class="card-product__imgOverlay">
                 <li><button><i class="ti-search"></i></button></li>
                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -464,7 +480,7 @@ if(isset($_POST["register"])){
 
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product2.png" alt="">
+              <img class="img-fluid" src="../img/product/product-tr2.png" alt="">
               <ul class="card-product__imgOverlay">
                 <li><button><i class="ti-search"></i></button></li>
                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -480,7 +496,7 @@ if(isset($_POST["register"])){
 
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product3.png" alt="">
+              <img class="img-fluid" src="../img/product/product-tr3.png" alt="">
               <ul class="card-product__imgOverlay">
                 <li><button><i class="ti-search"></i></button></li>
                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -496,7 +512,7 @@ if(isset($_POST["register"])){
 
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product4.png" alt="">
+              <img class="img-fluid" src="../img/product/product-tr4.png" alt="">
               <ul class="card-product__imgOverlay">
                 <li><button><i class="ti-search"></i></button></li>
                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -526,15 +542,15 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
             <div class="card card-blog">
               <div class="card-blog__img">
-                <img class="card-img rounded-0" src="../img/blog/blog1.png" alt="">
+                <img class="card-img rounded-0" src="../img/blog/blog-tr1.png" alt="">
               </div>
               <div class="card-body">
                 <ul class="card-blog__info">
                   <li><a href="#">By Admin</a></li>
                   <li><a href="#"><i class="ti-comments-smiley"></i> 2 Comments</a></li>
                 </ul>
-                <h4 class="card-blog__title"><a href="single-blog.html">The Richland Center Shooping News and weekly shooper</a></h4>
-                <p>Let one fifth i bring fly to divided face for bearing divide unto seed. Winged divided light Forth.</p>
+                <h4 class="card-blog__title"><a href="single-blog.html">Volunteering Project - Kajal Sana Karishma</a></h4>
+                <p>Project Work done at TLC and TWEP Sneh Project “Freedom to live” Prepared by, Kajal Sangoi Sana Ghodke Karishma Agarwal (S.Y.B.A.) From Maniben Nanavati College Under the guidance</p>
                 <a class="card-blog__link" href="#">Read More <i class="ti-arrow-right"></i></a>
               </div>
             </div>
@@ -543,15 +559,15 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
             <div class="card card-blog">
               <div class="card-blog__img">
-                <img class="card-img rounded-0" src="../img/blog/blog2.png" alt="">
+                <img class="card-img rounded-0" src="../img/blog/blog-tr2.png" alt="">
               </div>
               <div class="card-body">
                 <ul class="card-blog__info">
                   <li><a href="#">By Admin</a></li>
                   <li><a href="#"><i class="ti-comments-smiley"></i> 2 Comments</a></li>
                 </ul>
-                <h4 class="card-blog__title"><a href="single-blog.html">The Shopping News also offers top-quality printing services</a></h4>
-                <p>Let one fifth i bring fly to divided face for bearing divide unto seed. Winged divided light Forth.</p>
+                <h4 class="card-blog__title"><a href="single-blog.html">Tree Plantation Program near Wada</a></h4>
+                <p>Tree Plantation Program near Wada. 200 Saplings (Indian Fruits and Forest Trees) were planted on June 22nd, 2019 by Bajaj IT Team as part of their CSR Program</p>
                 <a class="card-blog__link" href="#">Read More <i class="ti-arrow-right"></i></a>
               </div>
             </div>
@@ -560,15 +576,15 @@ if(isset($_POST["register"])){
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
             <div class="card card-blog">
               <div class="card-blog__img">
-                <img class="card-img rounded-0" src="../img/blog/blog3.png" alt="">
+                <img class="card-img rounded-0" src="../img/blog/blog-tr3.png" alt="">
               </div>
               <div class="card-body">
                 <ul class="card-blog__info">
                   <li><a href="#">By Admin</a></li>
                   <li><a href="#"><i class="ti-comments-smiley"></i> 2 Comments</a></li>
                 </ul>
-                <h4 class="card-blog__title"><a href="single-blog.html">Professional design staff and efficient equipment you’ll find we offer</a></h4>
-                <p>Let one fifth i bring fly to divided face for bearing divide unto seed. Winged divided light Forth.</p>
+                <h4 class="card-blog__title"><a href="single-blog.html">Employment Generation</a></h4>
+                <p>Employment Generation Program: We are also starting employment generation program at TWEP for Graduates; Under Graduates; 12th Pass; 10th Pass or 8th pass. Kindly share your detailed bio-data</p>
                 <a class="card-blog__link" href="#">Read More <i class="ti-arrow-right"></i></a>
               </div>
             </div>
