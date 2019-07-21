@@ -1,0 +1,87 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!Doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+
+
+    <link rel="icon" href="Favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <title>Place Customized Order</title>
+</head>
+<body>
+<?php
+if(isset($_POST['customized_upload.php'])){
+ $filename = $_POST['customized_upload.php'];
+ echo $filename;
+}
+else{
+ echo "POST filename is not assigned";
+}
+
+?>
+
+
+<main class="my-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card" style="margin:40px 10px 10px 10px;">
+                        <div class="card-header"><h3>Place Custom Order</h3></div>
+                        <div class="card-body">
+                            <form name="my-form" action="customized_upload.php" method="post" enctype="multipart/form-data">
+
+
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="customization" name="customization" align="left" placeholder="customization" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Team ID'">
+						  </div>
+						  <div class="col-md-12 form-group">
+											<input type="text" class="form-control" id="quantity" align="left" name="quantity" placeholder="Quantity" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Instock ID'">
+						  </div>
+
+
+
+							                   <div class="col-md-12 form-group">
+                                   Select image to upload:
+							      <input type="file" class="form-control" name="file"/>
+
+							                 </div>
+
+
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary" align="center" name="submit">
+                                        Place Order
+                                        </button>
+
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+            </div>
+          </form>
+
+        </div>
+    </div>
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
