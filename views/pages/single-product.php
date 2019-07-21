@@ -40,24 +40,14 @@ $class = 'button primary-btn';
 				<div class="col-lg-6">
 					<div class="owl-carousel owl-theme s_Product_carousel">
 						<div class="single-prd-item">
-							<img class="img-fluid" src="../img/category/s-p1.jpg" alt="">
+                <?php echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode($result['product_image']).'" style="width:539px;height:583px" alt="">';?>
 						</div>
-						<!-- <div class="single-prd-item">
-							<img class="img-fluid" src="../img/category/s-p1.jpg" alt="">
-						</div>
-						<div class="single-prd-item">
-							<img class="img-fluid" src="../img/category/s-p1.jpg" alt="">
-						</div> -->
 					</div>
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
-						<h3>Faded SkyBlu Denim Jeans</h3>
-						<h2>$149.99</h2>
-						<ul class="list">
-							<li><a class="active" href="#"><span>Category</span> : Household</a></li>
-							<li><a href="#"><span>Availibility</span> : In Stock</a></li>
-						</ul>
+						<h3><?php echo $result['product_name'] ?></h3>
+						<h2><?php echo "Rs.".$result['cost'] ?></h2>
 						<p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for
 							something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
 							during the winter.</p>

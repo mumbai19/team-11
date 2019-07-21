@@ -44,7 +44,7 @@ class Crud
             $i++;
         }
         $sql = "UPDATE $table SET $columnValueSet WHERE $condition";
-        
+        // echo $sql;
         $ps =  $conn->prepare($sql);
         
         $result = $ps->execute();

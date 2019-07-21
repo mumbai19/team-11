@@ -75,7 +75,7 @@ function myFunction() {
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "trishul";
+$dbname = "Jpmc";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

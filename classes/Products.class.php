@@ -44,6 +44,20 @@ class Products{
         return $result;
     }
 
+    function viewProductsByCategory($condition){
+        $result = Crud::readAll($this->conn,$this->table,$condition);
+        return $result;
+    }
+
+    function viewTopProducts(){
+        $sql = "SELECT * FROM {$this->table} ORDER BY count_purchased DESC";
+        echo $sql; 
+        $statement = $this->conn->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetchAll();
+        return $result;
+    }
+
 }
 
 ?>
