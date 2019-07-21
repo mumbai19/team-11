@@ -30,6 +30,11 @@ class Products{
         return $data;
     }
 
+    function viewProduct($product_id){
+        $data = Crud::read($this->conn,$this->table,"product_id=$product_id");
+        return $data['result'];
+    }
+
     function viewAllProducts($condition){
         $result = Crud::readAll($this->conn,$this->table,"is_deleted=0 AND quantity>0 ".$condition);
         return $result;

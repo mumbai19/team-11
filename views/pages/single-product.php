@@ -1,8 +1,41 @@
 <?php
+ob_start();
 include_once('../layouts/header.php');
 include_once('../layouts/navbar.php');
+include_once('../../classes/Products.class.php');
+include_once('../../classes/Cart.class.php');
+session_start();
+$product = new Products();
+echo $_SESSION['user_id'];
+if(isset($_GET['id'])){
+	$result =$product->viewProduct($_GET['id']);
+	$_SESSION['product_id']=$_GET['id']; 
+}else{
+	$result =$product->viewProduct(1);
+}
+
+if(isset($_POST['quantity'])){
+	$data['quantity'] = $_POST['quantity'];
+	$_SESSION['quantity'] = $data['quantity'];  
+}
+
+if(isset($_GET['addId'])){
+	if(isset($_SESSION['quantity'])){
+		$cart = new Cart();
+		if(isset($_SESSION['product_id'])){
+			$cart->addToCart($_SESSION['product_id'],$_SESSION['quantity']);
+			unset($_SESSION['product_id']);
+		}else{
+			$cart->addToCart(1,$_SESSION['quantity']);
+		}
+		unset($_SESSION['quantity']);
+	}
+	Helper::redirect('cart.php');	
+}
+$class = 'button primary-btn';
 ?>
-	<div class="product_image_area">
+
+<div class="product_image_area">
 		<div class="container">
 			<div class="row s_product_inner">
 				<div class="col-lg-6">
@@ -30,13 +63,29 @@ include_once('../layouts/navbar.php');
 							something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
 							during the winter.</p>
 						<div class="product_count">
-              <label for="qty">Quantity:</label>
-              <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-							 class="increase items-count" type="button"></button>
-							<input type="number" name="qty" id="sst" size="2" min="1" max="10" value="1" title="Quantity:" class="input-text qty">
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-               class="reduced items-count" type="button"></button>
-							<a class="button primary-btn" href="#">Add to Cart</a>
+            <input type="number" name="qty" id="qty" min="0"  value="0" title="Quantity:" class="input-text qty" onchange="setQuantity(this.value)">
+						<script>
+							function setQuantity(val){
+								var x = val;
+								if(x!==0 && x>0){
+									$.ajax({
+										url:"single-product.php",
+										method: "POST",
+										data: {quantity:x},
+										dataType: "json",
+									});
+								}										
+							}							
+            </script>
+            
+            <?php if(isset($_SESSION['user_id'])){
+							 echo "<a class='$class' href=single-product.php?addId=",$_SESSION['user_id'],">Add to Cart</a>";
+						}else{
+              ?>
+                <a class=button primary-btn href="" data-toggle="modal" data-target="#modalLRForm">Add to Cart</a>	
+            <?php
+            }
+						?>
 						</div>
 					</div>
 				</div>

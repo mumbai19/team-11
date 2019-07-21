@@ -65,7 +65,7 @@ class User{
             }
             session_start();
             $_SESSION["user_id"] = $this->user_id;
-
+            echo $_SESSION["user_id"];
             $this->setCookies($this->user_id,$signed_in);
 
             if(password_verify($password,$this->password)){

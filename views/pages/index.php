@@ -41,19 +41,6 @@ if(isset($_POST["register"])){
 }
 </style>
 
-  <main class="site-main">
-    <!--Modal: Login / Register Form-->
-    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <br>
-    <br>
-    <br>
-      <div class="modal-dialog cascading-modal" role="document">
-        <!--Content-->
-        <div class="modal-content">
-
-          <!--Modal cascading tabs-->
-          <div class="modal-c-tabs">
-
             <!-- Nav tabs -->
             <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
               <li class="nav-item">
@@ -141,6 +128,8 @@ if(isset($_POST["register"])){
       </div>
     </div>
     <!--Modal: Login / Register Form-->
+=======
+>>>>>>> 1ebb1bf1e9c6fc0cab01d45096317aed5632c7f3
 
 <!-- <div class="text-center">
   <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Launch
