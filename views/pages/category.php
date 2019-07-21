@@ -5,7 +5,8 @@ include_once('../../classes/Products.class.php');
 include_once('../../classes/Categories.class.php');
 
 $product = new Products();
-
+$topProducts = $product->viewTopProducts();
+// print_r($topProducts); 
 $limit = 3;     
 
 if (isset($_GET["page"])) {  
@@ -16,12 +17,19 @@ if (isset($_GET["page"])) {
 
 $category = new Categories();
 $categories = $category->viewAllCategories();
-// print_r($categories);
+
 $start_from = ($pn-1) * $limit;   
 if(isset($_POST["search"]) && isset($_POST['keywords'])){
-  $product_details = $product->viewProductsBySearch($_POST['keywords']," LIMIT $start_from, $limit");   
+    $product_details = $product->viewProductsBySearch($_POST['keywords']," LIMIT $start_from, $limit");   
+}else if(isset($_POST['categorySubmit'])){
+    $category_id = $_POST['category'];
+    if($category_id!=-1){
+        $product_details = $product->viewProductsByCategory("category_id = $category_id");
+    }else{
+      $product_details = $product->viewProductsByCategory("1");
+    }    
 }else{
-  $product_details = $product->viewAllProducts("LIMIT $start_from, $limit");
+    $product_details = $product->viewAllProducts("LIMIT $start_from, $limit");
 }
 
 $total_records = count($product_details);   
@@ -43,17 +51,20 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
             <div class="head">Browse Categories</div>
             <ul class="main-categories">
               <li class="common-filter">
-                <form action="#">
+                <form action="category.php" method="POST">
                   <ul>
                      <?php
                       for($i=0;$i<count($categories);$i++){
                           $category = $categories[$i];   
                      ?> 
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="men" name="brand"><label for="men"><?php echo $category['category_name'];?></label></li>
+                        <li class="filter-list"><input class="pixel-radio" type="radio" id="men" name="category" value=<?php echo $category['category_id'];  ?>><label for="men"><?php echo $category['category_name'];?></label></li>                        
+                        
                     <?php
                       }
                     ?>
                   </ul>
+                  <li class="filter-list"><input class="pixel-radio" type="radio" id="men" name="category" value=-1><label for="men">All</label></li>                        
+                  <button type="submit"  name="categorySubmit">Filter</button> 
                 </form>
               </li>
             </ul>
@@ -162,56 +173,24 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
         <h2>Top <span class="section-intro__style">Product</span></h2>
       </div>
 			<div class="row mt-30">
+      
         <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
           <div class="single-search-product-wrapper">
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-1.png" alt=""></a>
-              <div class="desc">
-                  <a href="#" class="title">Gray Coffee Cup</a>
-                  <div class="price">$170.00</div>
-              </div>
-            </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-2.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-3.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-          </div>
+            
         </div>
-
+        <?php
+            for($i=0;$i<count($topProducts);$i++){
+        ?>                  
         <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
           <div class="single-search-product-wrapper">
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-4.png" alt=""></a>
-              <div class="desc">
-                  <a href="#" class="title">Gray Coffee Cup</a>
-                  <div class="price">$170.00</div>
-              </div>
+          <div class="single-search-product d-flex">
+              <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $topProducts[$i]['product_image'] ).'" style="width:70px;height:70px"/>';?>
+                <div class="desc">
+                  <?php echo "<a href=single-product.php?id=",$topProducts[$i]['product_id'],">";?><?php $topProducts[$i]['product_name']; ?></a>
+                  <div class="price"><?php $topProducts[$i]['cost']; ?></div>
+                </div>              
             </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-5.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
             </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-6.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
@@ -230,16 +209,11 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
                 <div class="price">$170.00</div>
               </div>
             </div>
-            <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-9.png" alt=""></a>
-              <div class="desc">
-                <a href="#" class="title">Gray Coffee Cup</a>
-                <div class="price">$170.00</div>
-              </div>
-            </div>
-          </div>
+            
         </div>
-
+        <?php
+              }
+            ?>        
         <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
           <div class="single-search-product-wrapper">
             <div class="single-search-product d-flex">

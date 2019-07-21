@@ -1,6 +1,8 @@
 <?php
   include_once('../layouts/header.php');
   include_once('../layouts/navbar.php');
+  // include_once('../../classes/')
+
 ?>
 
 <style>
@@ -32,7 +34,7 @@
               <h4>Shopping is fun, especially when it helps someone.</h4>
               <h1>Browse Our Product</h1>
               <p>Our products combine the arts of delicate hand embroidery and simple but elegant Warli Paintings and Intricate Madhubani paintings. From crafting the products to finishing and packaging all the work is done by women from lower income communities.
-</p>
+              </p>
               <a class="button button-hero" href="#">Browse Now</a>
             </div>
           </div>
