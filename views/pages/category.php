@@ -2,6 +2,7 @@
 include_once('../layouts/header.php');
 include_once('../layouts/navbar.php');
 include_once('../../classes/Products.class.php');
+include_once('../../classes/Categories.class.php');
 
 $product = new Products();
 
@@ -12,7 +13,10 @@ if (isset($_GET["page"])) {
 }else {  
   $pn=1;  
 };   
- 
+
+$category = new Categories();
+$categories = $category->viewAllCategories();
+// print_r($categories);
 $start_from = ($pn-1) * $limit;   
 if(isset($_POST["search"]) && isset($_POST['keywords'])){
   $product_details = $product->viewProductsBySearch($_POST['keywords']," LIMIT $start_from, $limit");   
@@ -41,10 +45,14 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
               <li class="common-filter">
                 <form action="#">
                   <ul>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="men" name="brand"><label for="men">Bags & Keychains</label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">Paperweights</label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="accessories" name="brand"><label for="accessories">Greeting cards & Candles</label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="footwear" name="brand"><label for="footwear">Jewellery & Stones</label></li>
+                     <?php
+                      for($i=0;$i<count($categories);$i++){
+                          $category = $categories[$i];   
+                     ?> 
+                        <li class="filter-list"><input class="pixel-radio" type="radio" id="men" name="brand"><label for="men"><?php echo $category['category_name'];?></label></li>
+                    <?php
+                      }
+                    ?>
                   </ul>
                 </form>
               </li>

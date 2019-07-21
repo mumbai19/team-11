@@ -64,7 +64,9 @@ class Cart{
     function deleteProductFromCart($cart_id){
         $data['is_deleted'] = 1;
         $data['updated_at'] = date("Y-m-d h:i:sa");
-        return Crud::update($this->conn,$this->table,$data,"cart_id=$cart_id");
+        if(Crud::update($this->conn,$this->table,$data,"cart_id=$cart_id")){
+            Helper::redirect('cart.php');
+        }
     }
 }
 ?>

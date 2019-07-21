@@ -101,7 +101,7 @@ if(isset($_POST['deletebtn'])){
                                             Are you sure you want to remove this item from your cart?
                                         </div>
                                         <div class="modal-footer">
-                                            <form action="#" method="POST">
+                                            <form action="" method="POST">
                                                 <input type="hidden" id="recordID" value=<?php echo $cart_products[$i]['cart_id']; ?> name="cart_id">
                                                     <button type="submit" name="deletebtn" id="deletebtn" class="btn btn-danger" onclick="hideHeader()">YES</button>
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="hideHeader()">NO</button>
