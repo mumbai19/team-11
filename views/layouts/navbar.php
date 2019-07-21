@@ -30,7 +30,7 @@ if(isset($_POST["register"])){
 }
 ?>
 <!--================ Start Header Menu Area =================-->
-<header class="header_area">
+<header class="header_area" id="headerDiv">
   <div class="main_menu">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">

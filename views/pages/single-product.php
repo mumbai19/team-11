@@ -6,7 +6,7 @@ include_once('../../classes/Products.class.php');
 include_once('../../classes/Cart.class.php');
 session_start();
 $product = new Products();
-echo $_SESSION['user_id'];
+// echo $_SESSION['user_id'];
 if(isset($_GET['id'])){
 	$result =$product->viewProduct($_GET['id']);
 	$_SESSION['product_id']=$_GET['id']; 
