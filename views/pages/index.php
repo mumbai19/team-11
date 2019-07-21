@@ -13,7 +13,7 @@ if(isset($_POST["loginName"])){
         $user->login($data,$signed_in);
     }else{
         Helper::redirect("");
-    }  
+    }
 }
 
 if(isset($_POST["register"])){
@@ -25,7 +25,7 @@ if(isset($_POST["register"])){
       $user = new User();
       $user->register($data);
     }else{
-      Helper::redirect("");      
+      Helper::redirect("");
     }
 }
 
@@ -67,7 +67,7 @@ if(isset($_POST["register"])){
             </ul>
 
             <!-- Tab panels -->
-            
+
             <div class="tab-content">
               <!--Panel 7-->
               <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
@@ -88,34 +88,21 @@ if(isset($_POST["register"])){
                     <div class="form-check">
                       <input type="checkbox" class="form-check-input" name="remember_me">
                       <label class="form-check-label">Remember me!</label>
-                    </div> 
+                    </div>
                     <div class="text-center mt-2">
                       <button type="submit" name="loginName"  class="btn btn-primary" value="submit">Log in<i class="fas fa-sign-in ml-1"></i></button>
                     </div>
                 </div>
                 </form>
-                
-                <!--Footer-->
-               
-                  <div class="modal-footer">
-                    <div class="options text-center text-md-right mt-1">
-                      <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                      <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-                    </div>
-                    <button type="button"  class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                  </div>
-               
               </div>
-              <!--/.Panel 7-->
 
-              <!--Panel 8-->
               <div class="tab-pane fade" id="panel8" role="tabpanel">
               <form method="POST">
                 <!--Body-->
                 <div class="modal-body">
 
                 <div class="md-form form-sm mb-5">
-                    <i class="fas fa-envelope prefix"></i>
+                    <i class="fas fa-user prefix"></i>
                     <input type="text" name="user_name" id="modalLRInput12" class="form-control form-control-sm validate">
                     <label data-error="wrong" data-success="right" for="modalLRInput12">Your Name</label>
                   </div>
@@ -133,7 +120,7 @@ if(isset($_POST["register"])){
                   </div>
 
                   <div class="md-form form-sm mb-4">
-                    <i class="fas fa-lock prefix"></i>
+                    <i class="fas fa-phone-square prefix"></i>
                     <input type="text" name="phone" id="modalLRInput14" class="form-control form-control-sm validate">
                     <label data-error="wrong" data-success="right" for="modalLRInput14">Phone</label>
                   </div>
@@ -141,16 +128,9 @@ if(isset($_POST["register"])){
                   <div class="text-center form-sm mt-2">
                     <button class="btn btn-info" name="register">Sign up<i class="fas fa-sign-in ml-1"></i></button>
                   </div>
-               
+
                 </div>
                 </form>
-                <!--Footer-->
-                <div class="modal-footer">
-                  <div class="options text-right">
-                    <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
-                  </div>
-                  <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                </div>
               </div>
               <!--/.Panel 8-->
             </div>
@@ -230,9 +210,9 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr1.png" alt="">
                 <ul class="card-product__imgOverlay">
-                   
+
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-                    
+
                 </ul>
               </div>
               <div class="card-body">
@@ -247,9 +227,9 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr2.png" alt="">
                 <ul class="card-product__imgOverlay">
-                   
+
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-                    
+
                 </ul>
               </div>
               <div class="card-body">
@@ -264,9 +244,9 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr3.png" alt="">
                 <ul class="card-product__imgOverlay">
-                   
+
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-                    
+
                 </ul>
               </div>
               <div class="card-body">
@@ -281,9 +261,9 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr4.png" alt="">
                 <ul class="card-product__imgOverlay">
-                   
+
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-                    
+
                 </ul>
               </div>
               <div class="card-body">
@@ -298,9 +278,9 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr5.png" alt="">
                 <ul class="card-product__imgOverlay">
-                   
+
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-                    
+
                 </ul>
               </div>
               <div class="card-body">
@@ -315,9 +295,9 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr6.png" alt="">
                 <ul class="card-product__imgOverlay">
-                   
+
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-                    
+
                 </ul>
               </div>
               <div class="card-body">
@@ -332,9 +312,9 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr7.png" alt="">
                 <ul class="card-product__imgOverlay">
-                   
+
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-                    
+
                 </ul>
               </div>
               <div class="card-body">
@@ -349,9 +329,9 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr8.png" alt="">
                 <ul class="card-product__imgOverlay">
-                   
+
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-                    
+
                 </ul>
               </div>
               <div class="card-body">
@@ -396,9 +376,9 @@ if(isset($_POST["register"])){
             <div class="card-product__img">
               <img class="img-fluid" src="../img/product/product-tr1.png" alt="">
               <ul class="card-product__imgOverlay">
-                 
+
                 <li><button><i class="ti-shopping-cart"></i></button></li>
-                  
+
               </ul>
             </div>
             <div class="card-body">
@@ -412,9 +392,9 @@ if(isset($_POST["register"])){
             <div class="card-product__img">
               <img class="img-fluid" src="../img/product/product-tr2.png" alt="">
               <ul class="card-product__imgOverlay">
-                 
+
                 <li><button><i class="ti-shopping-cart"></i></button></li>
-                  
+
               </ul>
             </div>
             <div class="card-body">
@@ -428,9 +408,9 @@ if(isset($_POST["register"])){
             <div class="card-product__img">
               <img class="img-fluid" src="../img/product/product-tr3.png" alt="">
               <ul class="card-product__imgOverlay">
-                 
+
                 <li><button><i class="ti-shopping-cart"></i></button></li>
-                  
+
               </ul>
             </div>
             <div class="card-body">
@@ -444,9 +424,9 @@ if(isset($_POST["register"])){
             <div class="card-product__img">
               <img class="img-fluid" src="../img/product/product-tr4.png" alt="">
               <ul class="card-product__imgOverlay">
-                 
+
                 <li><button><i class="ti-shopping-cart"></i></button></li>
-                  
+
               </ul>
             </div>
             <div class="card-body">
@@ -460,9 +440,9 @@ if(isset($_POST["register"])){
             <div class="card-product__img">
               <img class="img-fluid" src="../img/product/product-tr1.png" alt="">
               <ul class="card-product__imgOverlay">
-                 
+
                 <li><button><i class="ti-shopping-cart"></i></button></li>
-                  
+
               </ul>
             </div>
             <div class="card-body">
@@ -476,9 +456,9 @@ if(isset($_POST["register"])){
             <div class="card-product__img">
               <img class="img-fluid" src="../img/product/product-tr2.png" alt="">
               <ul class="card-product__imgOverlay">
-                 
+
                 <li><button><i class="ti-shopping-cart"></i></button></li>
-                  
+
               </ul>
             </div>
             <div class="card-body">
@@ -492,9 +472,9 @@ if(isset($_POST["register"])){
             <div class="card-product__img">
               <img class="img-fluid" src="../img/product/product-tr3.png" alt="">
               <ul class="card-product__imgOverlay">
-                 
+
                 <li><button><i class="ti-shopping-cart"></i></button></li>
-                  
+
               </ul>
             </div>
             <div class="card-body">
@@ -508,9 +488,9 @@ if(isset($_POST["register"])){
             <div class="card-product__img">
               <img class="img-fluid" src="../img/product/product-tr4.png" alt="">
               <ul class="card-product__imgOverlay">
-                 
+
                 <li><button><i class="ti-shopping-cart"></i></button></li>
-                  
+
               </ul>
             </div>
             <div class="card-body">
