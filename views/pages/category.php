@@ -5,24 +5,24 @@ include_once('../../classes/Products.class.php');
 
 $product = new Products();
 
-$limit = 3;     
+$limit = 3;
 
-if (isset($_GET["page"])) {  
-  $pn = $_GET["page"];  
-}else {  
-  $pn=1;  
-};   
- 
-$start_from = ($pn-1) * $limit;   
+if (isset($_GET["page"])) {
+  $pn = $_GET["page"];
+}else {
+  $pn=1;
+};
+
+$start_from = ($pn-1) * $limit;
 if(isset($_POST["search"]) && isset($_POST['keywords'])){
-  $product_details = $product->viewProductsBySearch($_POST['keywords']," LIMIT $start_from, $limit");   
+  $product_details = $product->viewProductsBySearch($_POST['keywords']," LIMIT $start_from, $limit");
 }else{
   $product_details = $product->viewAllProducts("LIMIT $start_from, $limit");
 }
 
-$total_records = count($product_details);   
-$total_pages = ceil($total_records / $limit);  
-$k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn)); 
+$total_records = count($product_details);
+$total_pages = ceil($total_records / $limit);
+$k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
 
 ?>
 <style>
@@ -45,6 +45,7 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">Paperweights</label></li>
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="accessories" name="brand"><label for="accessories">Greeting cards & Candles</label></li>
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="footwear" name="brand"><label for="footwear">Jewellery & Stones</label></li>
+                    <li class="filter-list"><input class="pixel-radio" type="radio" id="footwear" name="brand"><label for="footwear">All</label></li>
                   </ul>
                 </form>
               </li>
@@ -62,13 +63,13 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
             </div>
             <div class="mr-auto"></div>
             <form action="#" method="POST">
-            <div>              
+            <div>
                 <div class="input-group filter-bar-search">
                   <input type="text" placeholder="Search" name="keywords">
                   <div class="input-group-append">
                     <button type="submit" name="search"><i class="ti-search"></i></button>
                   </div>
-                </div>               
+                </div>
             </div>
             </form>
           </div>
@@ -78,14 +79,14 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
             <div class="row">
             <?php
                 for($i=0;$i<count($product_details);$i++){
-            ?> 
+            ?>
               <div class="col-md-6 col-lg-4">
                 <div class="card text-center card-product">
                 <?php echo "<a href=single-product.php?id=",$product_details[$i]['product_id'],">";?>
                   <div class="card-product__img">
                   <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $product_details[$i]['product_image'] ).'" style="width:255px;height:271px"/>';?>
                     <ul class="card-product__imgOverlay">
-                        <li><button><i class="ti-shopping-cart"></i></button></li>                        
+                        <li><button><i class="ti-shopping-cart"></i></button></li>
                     </ul>
                   </div>
                   <div class="card-body">
@@ -95,53 +96,53 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
                   </div>
                 </div>
               </div>
-              <?php 
+              <?php
                 }
-              ?>                        
+              ?>
             </div>
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                   <?php
                   if($pn>=2){
-                    ?> 
-                    <li class=page-item><a class=page-link href=<?php echo "category.php?page=".($pn-1);?> tabindex="-1">Previous</a></li>  
-                  <?php 
+                    ?>
+                    <li class=page-item><a class=page-link href=<?php echo "category.php?page=".($pn-1);?> tabindex="-1">Previous</a></li>
+                  <?php
                   }else{
                     ?>
                     <li class="page-item disabled">
                     <a class="page-link" href="#" tabindex="-1">Previous</a>
                   </li>
                   <?php
-                  } 
+                  }
                   for($i=1;$i<=3;$i++){?>
                   <li class="page-item"><a class="page-link" href=<?php echo "category.php?page=".$i; ?>><?php echo $i;?></a></li>
-                  <?php 
+                  <?php
                   }
                   ?>
                   <?php
-                  if($pn<$total_pages){ 
+                  if($pn<$total_pages){
                   ?>
                     <li class="page-item">
                     <a class="page-link" href=<?php echo "category.php?page=".($pn+1); ?>>Next</a>
-                  </li>   
+                  </li>
                   <?php
-                  }else{ 
+                  }else{
                   ?>
                     <li class="page-item disabled">
                     <a class="page-link" href="#" tabindex="-1">Next</a>
                   </li>
                   <?php
                   }
-                  ?>                
+                  ?>
                 </ul>
               </nav>
           </section>
           <!-- End Best Seller -->
-          
+
         </div>
-        
+
       </div>
-      
+
     </div>
   </section>
 	<!-- ================ category section end ================= -->
@@ -157,21 +158,21 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
         <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
           <div class="single-search-product-wrapper">
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-1.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr1.jpg" alt=""></a>
               <div class="desc">
                   <a href="#" class="title">Gray Coffee Cup</a>
                   <div class="price">$170.00</div>
               </div>
             </div>
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-2.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr2.jpg" alt=""></a>
               <div class="desc">
                 <a href="#" class="title">Gray Coffee Cup</a>
                 <div class="price">$170.00</div>
               </div>
             </div>
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-3.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr3.jpg" alt=""></a>
               <div class="desc">
                 <a href="#" class="title">Gray Coffee Cup</a>
                 <div class="price">$170.00</div>
@@ -183,21 +184,21 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
         <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
           <div class="single-search-product-wrapper">
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-4.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr4.jpg" alt=""></a>
               <div class="desc">
                   <a href="#" class="title">Gray Coffee Cup</a>
                   <div class="price">$170.00</div>
               </div>
             </div>
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-5.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr5.jpg" alt=""></a>
               <div class="desc">
                 <a href="#" class="title">Gray Coffee Cup</a>
                 <div class="price">$170.00</div>
               </div>
             </div>
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-6.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr6.jpg" alt=""></a>
               <div class="desc">
                 <a href="#" class="title">Gray Coffee Cup</a>
                 <div class="price">$170.00</div>
@@ -209,21 +210,21 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
         <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
           <div class="single-search-product-wrapper">
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-7.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr7.jpg" alt=""></a>
               <div class="desc">
                   <a href="#" class="title">Gray Coffee Cup</a>
                   <div class="price">$170.00</div>
               </div>
             </div>
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-8.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr8.jpg" alt=""></a>
               <div class="desc">
                 <a href="#" class="title">Gray Coffee Cup</a>
                 <div class="price">$170.00</div>
               </div>
             </div>
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-9.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr3.jpg" alt=""></a>
               <div class="desc">
                 <a href="#" class="title">Gray Coffee Cup</a>
                 <div class="price">$170.00</div>
@@ -235,21 +236,21 @@ $k = (($pn+4>$total_pages)?$total_pages-4:(($pn-4<1)?5:$pn));
         <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
           <div class="single-search-product-wrapper">
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-1.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr1.jpg" alt=""></a>
               <div class="desc">
                   <a href="#" class="title">Gray Coffee Cup</a>
                   <div class="price">$170.00</div>
               </div>
             </div>
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-2.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr2.jpg" alt=""></a>
               <div class="desc">
                 <a href="#" class="title">Gray Coffee Cup</a>
                 <div class="price">$170.00</div>
               </div>
             </div>
             <div class="single-search-product d-flex">
-              <a href="#"><img src="../img/product/product-sm-3.png" alt=""></a>
+              <a href="#"><img src="../img/images/tr3.jpg" alt=""></a>
               <div class="desc">
                 <a href="#" class="title">Gray Coffee Cup</a>
                 <div class="price">$170.00</div>

@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include_once('../layouts/header.php');
 include_once('../layouts/navbar.php');
 include_once('../../classes/User.class.php');
@@ -13,7 +14,7 @@ if(isset($_POST["loginName"])){
         $user->login($data,$signed_in);
     }else{
         Helper::redirect("");
-    }  
+    }
 }
 
 if(isset($_POST["register"])){
@@ -25,7 +26,7 @@ if(isset($_POST["register"])){
       $user = new User();
       $user->register($data);
     }else{
-      Helper::redirect("");      
+      Helper::redirect("");
     }
 }
 ?>
@@ -47,23 +48,22 @@ if(isset($_POST["register"])){
             <li class="nav-item submenu dropdown">
               <a href="http://localhost/Trishul/team-11/views/pages/category.php" class="nav-link dropdown-toggle" role="button" aria-haspopup="true"
                 aria-expanded="false">Shop</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="http://localhost/Trishul/team-11/views/pages/category.php">Shop Category</a></li>
-                  <li class="nav-item"><a class="nav-link" href="http://localhost/Trishul/team-11/views/pages/single-product.php">Product Details</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
-                </ul>
+                  <!-- <ul class="dropdown-menu">
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/Trishul/team-11/views/pages/category.php">Shop Category</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/Trishul/team-11/views/pages/single-product.php">Product Details</a></li>
+                    <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+                  </ul> -->
             </li>
             <li class="nav-item submenu dropdown">
-              <a href="../donation_module/payment.php" class="nav-link dropdown-toggle" aria-haspopup="true"
-                aria-expanded="false">Donate</a>
+              <a href="payments.php" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Donate</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.trishul-ngo.org/p/contact-us_20.html">Contact</a></li>
           </ul>
 
           <ul class="nav-shop">
             <li class="nav-item"><button><i class="ti-search"></i></button></li>
-            <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+            <li class="nav-item"><button><a href="category.php"><i class="ti-shopping-cart"></i></a><span class="nav-shop__circle">3</span></button> </li>
             <li class="nav-item"><a class="button button-header" href="" data-toggle="modal" data-target="#modalLRForm" >Login</a></li>
           </ul>
         </div>
@@ -96,7 +96,7 @@ if(isset($_POST["register"])){
             </ul>
 
             <!-- Tab panels -->
-            
+
             <div class="tab-content">
               <!--Panel 7-->
               <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
@@ -117,23 +117,22 @@ if(isset($_POST["register"])){
                     <div class="form-check">
                       <input type="checkbox" class="form-check-input" name="remember_me">
                       <label class="form-check-label">Remember me!</label>
-                    </div> 
+                    </div>
                     <div class="text-center mt-2">
                       <button type="submit" name="loginName"  class="btn btn-primary" value="submit">Log in<i class="fas fa-sign-in ml-1"></i></button>
                     </div>
                 </div>
                 </form>
-                
+
                 <!--Footer-->
-               
+
                   <div class="modal-footer">
                     <div class="options text-center text-md-right mt-1">
                       <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                      <p>Forgot <a href="#" class="blue-text">Password?</a></p>
                     </div>
                     <button type="button"  class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
                   </div>
-               
+
               </div>
               <!--/.Panel 7-->
 
@@ -170,7 +169,7 @@ if(isset($_POST["register"])){
                   <div class="text-center form-sm mt-2">
                     <button class="btn btn-info" name="register">Sign up<i class="fas fa-sign-in ml-1"></i></button>
                   </div>
-               
+
                 </div>
                 </form>
                 <!--Footer-->

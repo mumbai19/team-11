@@ -19,9 +19,9 @@
 						<div class="single-footer-widget tp_widgets">
 							<h4 class="footer_title">Quick Links</h4>
 							<ul class="list">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Shop</a></li>
-								<li><a href="#">Donate</a></li>
+								<li><a href="index.php">Home</a></li>
+								<li><a href="category.php">Shop</a></li>
+								<li><a href="../donation_module/payment.php">Donate</a></li>
 								<li><a href="#">Contact</a></li>
 							</ul>
 						</div>

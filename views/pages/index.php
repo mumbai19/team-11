@@ -28,9 +28,6 @@ if(isset($_POST["register"])){
       Helper::redirect("");
     }
 }
-
-
-
 ?>
 <style>
 .card-img{
@@ -40,102 +37,6 @@ if(isset($_POST["register"])){
   height: 320px;
 }
 </style>
-
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
-                  Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
-                  Register</a>
-              </li>
-            </ul>
-
-            <!-- Tab panels -->
-
-            <div class="tab-content">
-              <!--Panel 7-->
-              <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-
-                <!--Body-->
-                <form method="POST">
-                <div class="modal-body mb-1">
-                    <div class="md-form form-sm mb-5">
-                      <i class="fas fa-envelope prefix"></i>
-                      <input type="email" name="email" id="email" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
-                    </div>
-                    <div class="md-form form-sm mb-4">
-                      <i class="fas fa-lock prefix"></i>
-                      <input type="password" name="password" id="password" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" name="remember_me">
-                      <label class="form-check-label">Remember me!</label>
-                    </div>
-                    <div class="text-center mt-2">
-                      <button type="submit" name="loginName"  class="btn btn-primary" value="submit">Log in<i class="fas fa-sign-in ml-1"></i></button>
-                    </div>
-                </div>
-                </form>
-              </div>
-
-              <div class="tab-pane fade" id="panel8" role="tabpanel">
-              <form method="POST">
-                <!--Body-->
-                <div class="modal-body">
-
-                <div class="md-form form-sm mb-5">
-                    <i class="fas fa-user prefix"></i>
-                    <input type="text" name="user_name" id="modalLRInput12" class="form-control form-control-sm validate">
-                    <label data-error="wrong" data-success="right" for="modalLRInput12">Your Name</label>
-                  </div>
-
-                  <div class="md-form form-sm mb-5">
-                    <i class="fas fa-envelope prefix"></i>
-                    <input type="email" name="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                    <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
-                  </div>
-
-                  <div class="md-form form-sm mb-5">
-                    <i class="fas fa-lock prefix"></i>
-                    <input type="password" name="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                    <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
-                  </div>
-
-                  <div class="md-form form-sm mb-4">
-                    <i class="fas fa-phone-square prefix"></i>
-                    <input type="text" name="phone" id="modalLRInput14" class="form-control form-control-sm validate">
-                    <label data-error="wrong" data-success="right" for="modalLRInput14">Phone</label>
-                  </div>
-
-                  <div class="text-center form-sm mt-2">
-                    <button class="btn btn-info" name="register">Sign up<i class="fas fa-sign-in ml-1"></i></button>
-                  </div>
-
-                </div>
-                </form>
-              </div>
-              <!--/.Panel 8-->
-            </div>
-
-          </div>
-        </div>
-        <!--/.Content-->
-      </div>
-    </div>
-    <!--Modal: Login / Register Form-->
-=======
->>>>>>> 1ebb1bf1e9c6fc0cab01d45096317aed5632c7f3
-
-<!-- <div class="text-center">
-  <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Launch
-    Modal LogIn/Register</a>
-</div> -->
-    <!--================ Hero banner start =================-->
     <section class="hero-banner">
       <div class="container">
         <div class="row no-gutters align-items-center pt-60px">
@@ -147,10 +48,9 @@ if(isset($_POST["register"])){
           <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
             <div class="hero-banner__content">
               <h4>Shopping is fun, especially when it helps someone.</h4>
-              <h1>Browse Our Product</h1>
-              <p>Our products combine the arts of delicate hand embroidery and simple but elegant Warli Paintings and Intricate Madhubani paintings. From crafting the products to finishing and packaging all the work is done by women from lower income communities.
-</p>
-              <a class="button button-hero" href="#">Browse Now</a>
+              <h1>Browse Our Products</h1>
+              <p>Our products combine the arts of delicate hand embroidery and simple but elegant Warli Paintings and Intricate Madhubani paintings. From crafting the products to finishing and packaging all the work is done by women</p>
+              <a class="button button-hero" href="category.php">Browse Now</a>
             </div>
           </div>
         </div>
@@ -187,7 +87,7 @@ if(isset($_POST["register"])){
     <!--================ Hero Carousel end =================-->
 
     <!-- ================ trending product section start ================= -->
-    <section class="section-margin calc-60px">
+    <section style="margin-bottom:0px;" class="section-margin calc-60px">
       <div class="container">
         <div class="section-intro pb-60px">
           <p>Popular Item in the market</p>
@@ -199,9 +99,7 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr1.png" alt="">
                 <ul class="card-product__imgOverlay">
-
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-
                 </ul>
               </div>
               <div class="card-body">
@@ -216,9 +114,7 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr2.png" alt="">
                 <ul class="card-product__imgOverlay">
-
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-
                 </ul>
               </div>
               <div class="card-body">
@@ -233,9 +129,7 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr3.png" alt="">
                 <ul class="card-product__imgOverlay">
-
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-
                 </ul>
               </div>
               <div class="card-body">
@@ -250,9 +144,7 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr4.png" alt="">
                 <ul class="card-product__imgOverlay">
-
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-
                 </ul>
               </div>
               <div class="card-body">
@@ -267,9 +159,7 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr5.png" alt="">
                 <ul class="card-product__imgOverlay">
-
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-
                 </ul>
               </div>
               <div class="card-body">
@@ -284,9 +174,7 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr6.png" alt="">
                 <ul class="card-product__imgOverlay">
-
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-
                 </ul>
               </div>
               <div class="card-body">
@@ -301,9 +189,7 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr7.png" alt="">
                 <ul class="card-product__imgOverlay">
-
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-
                 </ul>
               </div>
               <div class="card-body">
@@ -318,9 +204,7 @@ if(isset($_POST["register"])){
               <div class="card-product__img">
                 <img class="card-img" src="../img/product/product-tr8.png" alt="">
                 <ul class="card-product__imgOverlay">
-
                   <li><button><i class="ti-shopping-cart"></i></button></li>
-
                 </ul>
               </div>
               <div class="card-body">
@@ -353,154 +237,13 @@ if(isset($_POST["register"])){
     </section>
     <!-- ================ offer section end ================= -->
 
-    <!-- ================ Best Selling item  carousel ================= -->
-    <section class="section-margin calc-60px">
-      <div class="container">
-        <div class="section-intro pb-60px">
-          <p>Popular Item in the market</p>
-          <h2>Best <span class="section-intro__style">Sellers</span></h2>
-        </div>
-        <div class="owl-carousel owl-theme" id="bestSellerCarousel">
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product-tr1.png" alt="">
-              <ul class="card-product__imgOverlay">
-
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Accessories</p>
-              <h4 class="card-product__title"><a href="single-product.html">Quartz Belt Watch</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product-tr2.png" alt="">
-              <ul class="card-product__imgOverlay">
-
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Beauty</p>
-              <h4 class="card-product__title"><a href="single-product.html">Women Freshwash</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product-tr3.png" alt="">
-              <ul class="card-product__imgOverlay">
-
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Decor</p>
-              <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product-tr4.png" alt="">
-              <ul class="card-product__imgOverlay">
-
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Decor</p>
-              <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product-tr1.png" alt="">
-              <ul class="card-product__imgOverlay">
-
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Accessories</p>
-              <h4 class="card-product__title"><a href="single-product.html">Quartz Belt Watch</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product-tr2.png" alt="">
-              <ul class="card-product__imgOverlay">
-
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Beauty</p>
-              <h4 class="card-product__title"><a href="single-product.html">Women Freshwash</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product-tr3.png" alt="">
-              <ul class="card-product__imgOverlay">
-
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Decor</p>
-              <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="../img/product/product-tr4.png" alt="">
-              <ul class="card-product__imgOverlay">
-
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Decor</p>
-              <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ================ Best Selling item  carousel end ================= -->
-
     <!-- ================ Blog section start ================= -->
     <section class="blog">
+      <br>
       <div class="container">
         <div class="section-intro pb-60px">
-          <p>Popular Item in the market</p>
           <h2>Latest <span class="section-intro__style">News</span></h2>
         </div>
-
         <div class="row">
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
             <div class="card card-blog">
