@@ -50,8 +50,7 @@ class Products{
     }
 
     function viewTopProducts(){
-        $sql = "SELECT * FROM {$this->table} ORDER BY count_purchased DESC";
-        echo $sql; 
+        $sql = "SELECT * FROM {$this->table} ORDER BY count_purchased DESC"; 
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         $result = $statement->fetchAll();

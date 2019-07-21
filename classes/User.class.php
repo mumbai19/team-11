@@ -73,12 +73,12 @@ class User{
                 Helper::redirect("category.php");
             }else{
                 //Set toastr here and redirect to login
-                echo "Password";
-                // Helper::redirect("index.php");
+                // echo "Password";
+                Helper::redirect("index.php");
             }
         }else{
             echo "Module";
-            // Helper::redirect("index.php");
+            Helper::redirect("index.php");
         }
     }
 
